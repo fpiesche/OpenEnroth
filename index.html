@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">OpenEnroth<span id="projectnumber">&#160;c42f16f</span>
+   <div id="projectname">OpenEnroth<span id="projectnumber">&#160;eb460d1</span>
    </div>
   </td>
  </tr>
@@ -93,20 +93,40 @@ Getting Started on Windows</h1>
 <li>Run <code>OpenEnroth.exe</code>.</li>
 </ol>
 <h1><a class="anchor" id="autotoc_md18"></a>
-Getting Started on Ubuntu Linux</h1>
+Getting Started on Linux (Flatpak)</h1>
+<ol type="1">
+<li>Check if you have Flatpak installed:<ul>
+<li>Run <code>flatpak --version</code>.</li>
+<li>If you receive a message listing a version number, you're ready to go</li>
+<li>Otherwise, check <a href="https://flatpak.org/setup/">https://flatpak.org/setup/</a> and follow instructions there to set up.</li>
+<li>Alternately, you can move on to the "Loose executables" option below.</li>
+</ul>
+</li>
+<li>Download the <code>io.github.openenroth.openenroth_*.flatpak</code> package from one of the prebuilt <a href="https://github.com/OpenEnroth/OpenEnroth/releases">releases</a>.</li>
+<li>Run <code>flatpak install /path/to/io.github.openenroth.openenroth_*.flatpak</code> to install the OpenEnroth package.</li>
+<li>For the game data, you will need a GoG or any other version of Might and Magic VII. If you have an offline GoG installer:<ul>
+<li>Install <code>innoextract</code> with <code>sudo apt-get install innoextract</code> (or an appropriate equivalent command for your distribution).</li>
+<li>Run <code>innoextract -e -d ~/.var/app/io.github.openenroth.openenroth/data/ &lt;mm7-gog-folder&gt;/setup_mm_7.exe</code>.</li>
+<li>Run <code>mv ~/.var/app/io.github.openenroth/openenroth/data/app ~/.var/app/io.github.openenroth/openenroth/data/mm7</code>.</li>
+</ul>
+</li>
+<li>[TODO: Check if this is correct]</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md19"></a>
+Getting Started on Linux (Loose executables)</h1>
 <ol type="1">
 <li>You will need a GoG or any other version of Might and Magic VII. If you have an offline GoG installer, then follow these steps:<ul>
-<li>Install <code>innoextract</code> with <code>sudo apt-get install innoextract</code>.</li>
-<li>Run <code>innoextract -e -d &lt;target-folder&gt; &lt;mm7-gog-folder&gt;/setup_mm_7.exe</code>, where <code>&lt;target-folder&gt;</code> is the folder where you want to have game data extracted from the mm7 installer.</li>
+<li>Install <code>innoextract</code> with <code>sudo apt-get install innoextract</code> (or an appropriate equivalent command for your distribution).</li>
+<li>Run <code>innoextract -e -d &lt;target-folder&gt; &lt;mm7-gog-folder&gt;/setup_mm_7.exe</code>, where <code>&lt;target-folder&gt;</code> is the folder you want to extract the game data to.</li>
 <li>Check the files in <code>&lt;target-folder&gt;</code>, it should now contain the <code>app</code> subfolder. This is where game assets were extracted into.</li>
 </ul>
 </li>
-<li>Install OpenEnroth dependencies with <code>sudo apt-get install libsdl2-dev libdwarf-dev libelf-dev</code>.</li>
+<li>Install OpenEnroth dependencies with <code>sudo apt-get install libsdl2-dev libdwarf-dev libelf-dev</code> (or an appropriate equivalent command for your distribution).</li>
 <li>Download one of the prebuilt <a href="https://github.com/OpenEnroth/OpenEnroth/releases">releases</a> and unzip the files.</li>
 <li>From the <code>dist</code> folder inside the zip file copy the <code>OpenEnroth</code> binary to <code>&lt;target-folder&gt;/app</code>.</li>
 <li>Run <code>OpenEnroth</code> binary.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md19"></a>
+<h1><a class="anchor" id="autotoc_md20"></a>
 Getting Started on MacOS</h1>
 <ol type="1">
 <li>You will need a GoG or any other version of Might and Magic VII. If you have an offline GoG installer, then follow these steps:<ul>
@@ -120,15 +140,15 @@ Getting Started on MacOS</h1>
 <li>Run <code>xattr -rc &lt;extracted-path&gt;/dist/OpenEnroth.app</code>. This is needed because OpenEnroth binaries are unsigned, without this step the app bundle won't start.</li>
 <li>Start <code>OpenEnroth.app</code>.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md20"></a>
+<h1><a class="anchor" id="autotoc_md21"></a>
 Game Assets Path Override</h1>
 <p >You can set <code>OPENENROTH_MM7_PATH</code> env variable to point to the location of the game assets. If this variable is set, OpenEnroth will look for game assets only in the location it's pointing to. You might also want to add the following line to your bash profile (e.g. <code>~/.profile</code> on Ubuntu or <code>~/.zshrc</code> on Mac):</p>
 <div class="fragment"><div class="line">export OPENENROTH_MM7_PATH=&quot;&lt;path-to-mm7-game-assets&gt;&quot;</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md21"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md22"></a>
 Development</h1>
 <p >See the <a class="el" href="md_HACKING.html">HACKING</a> document for information on how to compile or if you intend to contribute.</p>
 <p >See the code <a href="https://openenroth.github.io/OpenEnroth/index.html">DOCUMENTATION</a>.</p>
-<h1><a class="anchor" id="autotoc_md22"></a>
+<h1><a class="anchor" id="autotoc_md23"></a>
 Screenshots</h1>
 <p ><img src="https://user-images.githubusercontent.com/24377109/79051879-f04cde80-7c32-11ea-939d-1dcc97b46f5d.png" alt="screenshot_1" class="inline"/></p>
 <p ><img src="https://user-images.githubusercontent.com/24377109/79051881-f17e0b80-7c32-11ea-82cd-5e4993a1c071.png" alt="screenshot_2" class="inline"/></p>
